@@ -1,0 +1,14 @@
+Sub Filter_Referral_List()
+' used for "Referral List for clients - Advanced Filter.xlsm"
+'
+' Filter referral list using criteria
+'
+
+On Error Resume Next
+
+    ActiveSheet.ShowAllData
+    Selection.AutoFilter
+    Range("Referral_List").AdvancedFilter Action:=xlFilterInPlace, CriteriaRange _
+        :=Range("Criteria"), Unique:=False
+
+End Sub
