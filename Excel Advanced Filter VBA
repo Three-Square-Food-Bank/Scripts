@@ -1,0 +1,21 @@
+Sub AdvancedFilterInboundDetail()
+'Filter referral list using criteria
+'Source: https://www.youtube.com/watch?v=0YNhxVu2a5s
+'Used for Operations Inbound file
+
+Dim rgData As Range, rgCriteria As Range
+
+Set rgData = ThisWorkbook.Worksheets("Inbound Detail w Slicers").Range("A5").CurrentRegion
+Set rgCriteria = ThisWorkbook.Worksheets("Inbound Detail w Slicers").Range("A2").CurrentRegion
+
+rgData.AdvancedFilter xlFilterInPlace, rgCriteria
+
+End Sub
+
+Sub ClearFilter()
+
+    If ThisWorkbook.Worksheets("Inbound Detail w Slicers").FilterMode = True Then
+        ThisWorkbook.Worksheets("Inbound Detail w Slicers").ShowAllData
+    End If
+    
+End Sub
