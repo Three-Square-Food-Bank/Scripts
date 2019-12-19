@@ -3,19 +3,29 @@ Sub AdvancedFilterInboundDetail()
 'Source: https://www.youtube.com/watch?v=0YNhxVu2a5s
 'Used for Operations Inbound file
 
-Dim rgData As Range, rgCriteria As Range
+' Set variables
+' -- rgData is range that will be filtered
+' -- rgCriteria is range that contains criteria
+' rgData and rgCriteria should both contain the same headers
+
+Dim rgData, rgCriteria As Range
+
+' Set variables to appropriate ranges
 
 Set rgData = ThisWorkbook.Worksheets("Inbound Detail w Slicers").Range("A5").CurrentRegion
 Set rgCriteria = ThisWorkbook.Worksheets("Inbound Detail w Slicers").Range("A2").CurrentRegion
+
+' Execute filter
 
 rgData.AdvancedFilter xlFilterInPlace, rgCriteria
 
 End Sub
 
 Sub ClearFilter()
+' clears filters in range if filters are on
 
-    If ThisWorkbook.Worksheets("Inbound Detail w Slicers").FilterMode = True Then
-        ThisWorkbook.Worksheets("Inbound Detail w Slicers").ShowAllData
-    End If
+If ThisWorkbook.Worksheets("Inbound Detail w Slicers").FilterMode = True Then
+    ThisWorkbook.Worksheets("Inbound Detail w Slicers").ShowAllData
+End If
     
 End Sub
